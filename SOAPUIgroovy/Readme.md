@@ -92,7 +92,13 @@ Click on 'Send Request' and observe the execution of the calculator.
 
 ![image](https://github.com/spookhorror/Blogs/assets/67255423/219ad647-12d5-43bb-a678-57fa14fa27a3)
 
-With updated payload we can see that below method has removed only this ${} content from payload and return updated string as.
+With updated payload we can see that below method has removed only this ${} content from payload and return updated string.
+
+Method:
+
+```java
+com.eviware.soapui.support.Tools : java.lang.String removePropertyExpansions(java.lang.String definitionUrl, java.lang.String definition)
+```
 
 Updated string:
 
@@ -100,11 +106,6 @@ Updated string:
 $${}{=Runtime.getRuntime().exec('calc.exe')}; to ${=Runtime.getRuntime().exec('calc.exe')};
 ```
 
-Method:
-
-```java
-com.eviware.soapui.support.Tools : java.lang.String removePropertyExpansions(java.lang.String definitionUrl, java.lang.String definition)
-```
 ![image](https://github.com/spookhorror/Blogs/assets/67255423/416aaab6-9ace-440f-abe1-3b36f406ef74)
 
 Logs:
@@ -123,22 +124,26 @@ groovy.lang.GroovyShell : groovy.lang.Script parse(java.lang.String)
 ```
 
 ![image](https://github.com/spookhorror/Blogs/assets/67255423/99fad30e-b7f8-45e7-8678-b1a36ae149f5)
+![Screenshot 2023-12-09 142958](https://github.com/spookhorror/Blogs/assets/67255423/d9148f43-272c-4825-817b-6af27eda19c6)
 
 
 # Exploitation Steps
 
-1. Host malicous WSDL and share it URL/FILE to Victim.
+#### 1. Host malicous WSDL and share it URL/FILE to Victim.
    For example.
 ![image](https://github.com/spookhorror/Blogs/assets/67255423/9fb8e8d8-1ede-4548-b547-f3195bed1e13)
 
-2. Initiate a Netcat listener on the attacker's machine.
+#### 2. Initiate a Netcat listener on the attacker's machine.
 
 ![Screenshot 2023-12-09 171052](https://github.com/spookhorror/Blogs/assets/67255423/b635643b-722e-48b5-b94e-9dccda30255a)
 
-3. Load the malicious WSDL on the victim's machine and execute the request.
+#### 3. Load the malicious WSDL on the victim's machine and execute the request.
 
 ![Screenshot 2023-12-09 171057](https://github.com/spookhorror/Blogs/assets/67255423/9d671154-6e3f-4ccd-b9e0-f72fd4fd6a2e)
 
 ![Screenshot 2023-12-09 171159](https://github.com/spookhorror/Blogs/assets/67255423/e1076ccd-6bbb-4e05-b6e1-7499f94006b6)
 
-Observe the reverse shell on the attacker's machine. It is possible to obtain access to the victim's shell simply by providing a malicious WSDL via URL or file.
+#### 4. Observe the reverse shell on the attacker's machine. It is possible to obtain access to the victim's shell simply by providing a malicious WSDL via URL or file.
+
+![Screenshot 2023-12-09 171204](https://github.com/spookhorror/Blogs/assets/67255423/4171c7ec-a7d1-42e2-82d1-960cbbe9aecd)
+
