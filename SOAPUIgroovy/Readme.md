@@ -32,7 +32,8 @@ Also i did project setup and instrument using **Fusion Lite Project Manager.**
 Download Malicious WSDL file of previous payload:  https://raw.githubusercontent.com/spookhorror/SOAPUICodeInjection/main/OLDWSDL.xml
 
 To load WSDL please follow below step:
-Click on SOAP and append endpoint of XML file. Click on “OK”
+1. Click on SOAP and append endpoint of XML file. 
+2. Click on “OK”
 
 ![image](https://github.com/spookhorror/Blogs/assets/67255423/5a9ef37f-3520-4d14-a939-7794ba50275f)
 
@@ -43,6 +44,8 @@ ${=Runtime.getRuntime().exec('calc.exe')};
 ```
 ![image](https://github.com/spookhorror/Blogs/assets/67255423/6a06928f-619a-4108-af14-f45fb04986eb)
 ![image](https://github.com/spookhorror/Blogs/assets/67255423/1e461b97-8ece-4d81-a425-909c6e955829)
+
+# Payloads and Regex Bypass:
 
 In **Fusion Lite Analyzer** we can see that application has Class called **Tools** which is responsible for removing malicious content because it has regex functionality which will remove malicious content.
 
@@ -120,3 +123,22 @@ groovy.lang.GroovyShell : groovy.lang.Script parse(java.lang.String)
 ```
 
 ![image](https://github.com/spookhorror/Blogs/assets/67255423/99fad30e-b7f8-45e7-8678-b1a36ae149f5)
+
+
+# Exploitation Steps
+
+1. Host malicous WSDL and share it URL/FILE to Victim.
+   For example.
+![image](https://github.com/spookhorror/Blogs/assets/67255423/9fb8e8d8-1ede-4548-b547-f3195bed1e13)
+
+2. Initiate a Netcat listener on the attacker's machine.
+
+![Screenshot 2023-12-09 171052](https://github.com/spookhorror/Blogs/assets/67255423/b635643b-722e-48b5-b94e-9dccda30255a)
+
+3. Load the malicious WSDL on the victim's machine and execute the request.
+
+![Screenshot 2023-12-09 171057](https://github.com/spookhorror/Blogs/assets/67255423/9d671154-6e3f-4ccd-b9e0-f72fd4fd6a2e)
+
+![Screenshot 2023-12-09 171159](https://github.com/spookhorror/Blogs/assets/67255423/e1076ccd-6bbb-4e05-b6e1-7499f94006b6)
+
+Observe the reverse shell on the attacker's machine. It is possible to obtain access to the victim's shell simply by providing a malicious WSDL via URL or file.
